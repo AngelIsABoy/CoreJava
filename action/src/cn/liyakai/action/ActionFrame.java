@@ -24,6 +24,7 @@ public class ActionFrame extends JFrame{
 		Action redAction = new ColorAction("Red", new ImageIcon("red-ball.gif"),Color.RED);
 		
 		//add buttons for these actions
-		buttonPanel.add()
+		buttonPanel.add();
+		
 	}
 }
