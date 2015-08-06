@@ -9,7 +9,7 @@ public class ActionFrameTest {
 		EventQueue.invokeLater(new Runnable(){
 			public void run(){
 				JFrame frame = new ActionFrame();
-				frame.setTitle("FontTest");
+				frame.setTitle("ActionTest");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 			}
