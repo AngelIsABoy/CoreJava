@@ -37,6 +37,11 @@ public class CalculatorPanel extends JPanel{
 		addButton("9", insert);
 		addButton("/", command);
 		
+		addButton("4", insert);
+		addButton("5", insert);
+		addButton("6", insert);
+		addButton("*", command);
+		
 		addButton("1", insert);
 		addButton("2", insert);
 		addButton("3", insert);
@@ -54,7 +59,7 @@ public class CalculatorPanel extends JPanel{
 	 * Adds a button to the center panel.
 	 * */
 	private void addButton(String label, ActionListener listener){
-		Jbutton button = new JButton(label);
+		JButton button = new JButton(label);
 		button.addActionListener(listener);
 		panel.add(button);
 	}
@@ -78,7 +83,7 @@ public class CalculatorPanel extends JPanel{
 	 * */
 	private class CommandAction implements ActionListener{
 		public void actionPerformed(ActionEvent event){
-			String comman = event.getActionCommand();
+			String command = event.getActionCommand();
 			
 			if(start){
 				if (command.equals("-")){
@@ -96,4 +101,12 @@ public class CalculatorPanel extends JPanel{
 	/*
 	 * Carries out the pending calculation.
 	 * */
+	public void calculate(double x){
+		if (lastCommand.equals("+")) result += x;
+		else if (lastCommand.equals("-")) result -= x;
+		else if (lastCommand.equals("*")) result *= x;
+		else if (lastCommand.equals("/")) result /= x;
+		else if (lastCommand.equals("=")) result = x;
+		display.setText("" + result);
+	}
 }
