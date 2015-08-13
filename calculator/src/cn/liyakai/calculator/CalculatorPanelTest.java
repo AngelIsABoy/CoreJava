@@ -8,7 +8,7 @@ public class CalculatorPanelTest {
 		EventQueue.invokeLater(new Runnable(){
 			public void run(){
 				JFrame frame = new CalculatorFrame();
-				frame.setTitle("FontTest");
+				frame.setTitle("CalculateTest");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 			}

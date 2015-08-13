@@ -108,5 +108,6 @@ public class CalculatorPanel extends JPanel{
 		else if (lastCommand.equals("/")) result /= x;
 		else if (lastCommand.equals("=")) result = x;
 		display.setText("" + result);
+		System.out.println(result + " " + x + " " + lastCommand);
 	}
 }
