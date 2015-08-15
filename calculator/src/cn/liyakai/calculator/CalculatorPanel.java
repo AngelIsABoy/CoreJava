@@ -75,6 +75,7 @@ public class CalculatorPanel extends JPanel{
 				start = false;
 			}
 			display.setText(display.getText() + input);
+			System.out.println(result+"");
 		}
 	}
 	
