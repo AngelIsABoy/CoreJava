@@ -6,8 +6,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class CheckBoxFrame extends JFrame{
-	private static final int DEFAULT_WIDTH = 300;
-	private static final int DEFAULT_HEIGHT = 200;
+	private static final int DEFAULT_WIDTH = 450;
+	private static final int DEFAULT_HEIGHT = 300;
 	public static final int FONTSIZE = 18;
 	private JCheckBox bold;
 	private JCheckBox italic;
@@ -17,13 +17,11 @@ public class CheckBoxFrame extends JFrame{
 		
 		//create Panel
 		JPanel southPanel = new JPanel();
-		JPanel centerPanel = new JPanel();
 		
 		//create a label
 		label = new JLabel("The quick brown for jumps over the lazy dog.");
 		label.setFont(new Font("Serif", Font.PLAIN, FONTSIZE));
-		centerPanel.add(label,BorderLayout.CENTER);
-		add(centerPanel, BorderLayout.CENTER);
+		add(label, BorderLayout.CENTER);
 		
 		//create buttons
 		bold = new JCheckBox("Bold");
