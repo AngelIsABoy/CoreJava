@@ -53,10 +53,80 @@ public class MenuFrame extends JFrame{
 			}
 		});
 		
-		// add all top-level menus to menu bar
+		//demonstrate check box and radio button menus
+		readonlyItem = new JCheckBoxMenuItem("Read-only");
+		readonlyItem.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event){
+				boolean saveOK = !readonlyItem.isSelected();
+				saveAction.setEnabled(saveOK);
+				saveAsAction.setEnabled(saveOK);
+			}
+		});
+		
+		ButtonGroup group = new ButtonGroup();
+		
+		JRadioButtonMenuItem insertItem = new JRadioButtonMenuItem("Insert");
+		insertItem.setSelected(true);
+		JRadioButtonMenuItem overtypeItem = new JRadioButtonMenuItem("Overtype");
+		
+		group.add(insertItem);
+		group.add(overtypeItem);
+		
+		//demonstrate icons
+		Action cutAction = new TestAction("Cut");
+		cutAction.putValue(Action.SMALL_ICON, new ImageIcon("cut.gif"));
+		Action copyAction = new TestAction("Copy");
+		copyAction.putValue(Action.SMALL_ICON, new ImageIcon("copy.gif"));
+		Action pasteAction = new TestAction("Paste");
+		pasteAction.putValue(Action.SMALL_ICON, new ImageIcon("paste.gif"));
+		
+		JMenu editMenu = new JMenu("Edit");
+		editMenu.add(cutAction);
+		editMenu.add(copyAction);
+		editMenu.add(pasteAction);
+		
+		//demonstrate nested menus
+		JMenu optionMenu = new JMenu("Options");
+				
+		optionMenu.add(readonlyItem);
+		optionMenu.addSeparator();
+		optionMenu.add(insertItem);
+		optionMenu.add(overtypeItem);
+				
+		editMenu.addSeparator();
+		editMenu.add(optionMenu);
+		
+		//demonstrate mnemonics
+		JMenu helpMenu = new JMenu("Help");
+		helpMenu.setMnemonic('H');
+		
+		JMenuItem indexItem = new JMenuItem("Index");
+		indexItem.setMnemonic('I');
+		helpMenu.add(indexItem);
+		
+		//you can also add the mnemonic key to an action
+		Action aboutAction = new TestAction("About");
+		aboutAction.putValue(Action.MNEMONIC_KEY, new Integer('A'));
+		helpMenu.add(aboutAction);
+		
+		// add all top-level menus  to menu bar
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		menuBar.add(fileMenu);
+		menuBar.add(editMenu);
+		menuBar.add(helpMenu);
+		
+		//demonstrate pop-ups
+		popup = new JPopupMenu();
+		popup.add(cutAction);
+		popup.add(copyAction);
+		popup.add(pasteAction);
+		
+		JPanel panel = new JPanel();
+		panel.setComponentPopupMenu(popup);
+		add(panel);
+		
+		
 	}
 
 }
